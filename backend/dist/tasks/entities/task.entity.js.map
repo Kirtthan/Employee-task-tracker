@@ -1,1 +1,1 @@
-{"version":3,"file":"task.entity.js","sourceRoot":"","sources":["../../../app/tasks/entities/task.entity.ts"],"names":[],"mappings":";;;AAAA,MAAa,IAAI;CAAG;AAApB,oBAAoB"}
+{"version":3,"file":"task.entity.js","sourceRoot":"","sources":["../../../src/tasks/entities/task.entity.ts"],"names":[],"mappings":";;;AAAA,MAAa,IAAI;CAAG;AAApB,oBAAoB"}

@@ -53,21 +53,13 @@ let UsersService = class UsersService {
     }
     async create(createUserDto) {
         const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-        try {
-            return await this.prisma.user.create({
-                data: {
-                    username: createUserDto.username,
-                    hashedPassword,
-                    role: 'USER',
-                },
-            });
-        }
-        catch (error) {
-            if (error.code === 'P2002') {
-                throw new common_1.ConflictException('Username already exists');
-            }
-            throw error;
-        }
+        return this.prisma.user.create({
+            data: {
+                username: createUserDto.username,
+                hashedPassword,
+                role: 'USER',
+            },
+        });
     }
     async findOne(username) {
         return this.prisma.user.findUnique({
