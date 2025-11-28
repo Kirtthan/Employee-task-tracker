@@ -79,4 +79,5 @@ The backend includes Swagger documentation available at: `http://localhost:3000/
 - **Email Service**: No real email service is integrated; "emails" are just database fields.
 
 ## 6. Screenshots
-(Please refer to the `images/` folder or the running application for visual verification of the glassmorphic design.)
+<img width="1511" height="1330" alt="image-1" src="https://github.com/user-attachments/assets/caa225e8-bf5b-405b-bd2c-3842c195d6e2" />
+
