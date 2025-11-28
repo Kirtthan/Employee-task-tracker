@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "postbuild": "npx prisma migrate deploy && npx prisma db seed",
+    "postbuild": "npx prisma migrate deploy --schema=../database/schema.prisma && npx prisma db seed",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
