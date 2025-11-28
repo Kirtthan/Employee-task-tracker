@@ -90,4 +90,12 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+},
+"prisma": {
+  "seed": "ts-node ../database/seed.ts"
+}
+},
+"prisma": {
+"seed": "ts-node ../database/seed.ts"
+}
 }
