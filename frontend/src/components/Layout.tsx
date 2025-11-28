@@ -1,16 +1,15 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import {
     Dashboard as DashboardIcon,
     People as PeopleIcon,
     Assignment as TaskIcon,
-    Logout as LogoutIcon,
-    Person as ProfileIcon
+    ExitToApp as LogoutIcon,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
     const location = useLocation();
     const logout = useAuthStore((state) => state.logout);
     const user = useAuthStore((state) => state.user);

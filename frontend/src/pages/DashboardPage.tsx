@@ -1,12 +1,31 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+﻿import { useQuery } from '@tanstack/react-query';
 import api from '../services/api';
 import { Typography } from '@mui/material';
 import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { motion } from 'framer-motion';
-import { KeyboardDoubleArrowUp, Person, Assignment, TrendingUp, RadioButtonUnchecked } from '@mui/icons-material';
+import { KeyboardDoubleArrowUp, Person, Assignment, TrendingUp } from '@mui/icons-material';
 
-const DashboardPage = () => {
+function KPICard(props: any) {
+    return (
+        <motion.div whileHover={{ scale: 1.02 }} className="glass-card p-6 flex flex-col justify-between h-40 relative overflow-hidden">
+            <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-10 ${props.color.replace('text-', 'bg-')}`} />
+            <div>
+                <Typography variant="subtitle2" className="text-gray-500 font-medium uppercase tracking-wider text-xs">{props.title}</Typography>
+                <Typography variant="h3" className="font-bold text-gray-800 mt-2">{props.value}</Typography>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+                <div className={`h-1.5 w-16 rounded-full bg-gray-200 overflow-hidden`}>
+                    <div className={`h-full ${props.color.replace('text-', 'bg-')} w-2/3`} />
+                </div>
+                <div className="flex items-center text-indigo-500 bg-indigo-50 px-2 py-1 rounded-lg">
+                    <KeyboardDoubleArrowUp fontSize="small" />
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
+function DashboardPage() {
     const { data: stats, isLoading } = useQuery({
         queryKey: ['dashboard-stats'],
         queryFn: async () => {
@@ -26,30 +45,12 @@ const DashboardPage = () => {
     if (isLoading) return <div>Loading...</div>;
 
     const statusData = [
-        { name: 'To Do', value: stats?.statusBreakdown?.TODO || 0, color: '#818cf8' }, // Indigo
-        { name: 'In Progress', value: stats?.statusBreakdown?.IN_PROGRESS || 0, color: '#2dd4bf' }, // Teal
-        { name: 'Done', value: stats?.statusBreakdown?.DONE || 0, color: '#a78bfa' }, // Purple
+        { name: 'To Do', value: stats?.statusBreakdown?.TODO || 0, color: '#818cf8' },
+        { name: 'In Progress', value: stats?.statusBreakdown?.IN_PROGRESS || 0, color: '#2dd4bf' },
+        { name: 'Done', value: stats?.statusBreakdown?.DONE || 0, color: '#a78bfa' },
     ];
 
     const pendingTasks = tasks?.filter((t: any) => t.status !== 'DONE').slice(0, 3) || [];
-
-    const KPICard = ({ title, value, icon, color }: any) => (
-        <motion.div whileHover={{ scale: 1.02 }} className="glass-card p-6 flex flex-col justify-between h-40 relative overflow-hidden">
-            <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-10 ${color.replace('text-', 'bg-')}`} />
-            <div>
-                <Typography variant="subtitle2" className="text-gray-500 font-medium uppercase tracking-wider text-xs">{title}</Typography>
-                <Typography variant="h3" className="font-bold text-gray-800 mt-2">{value}</Typography>
-            </div>
-            <div className="flex items-center justify-between mt-4">
-                <div className={`h-1.5 w-16 rounded-full bg-gray-200 overflow-hidden`}>
-                    <div className={`h-full ${color.replace('text-', 'bg-')} w-2/3`} />
-                </div>
-                <div className="flex items-center text-indigo-500 bg-indigo-50 px-2 py-1 rounded-lg">
-                    <KeyboardDoubleArrowUp fontSize="small" />
-                </div>
-            </div>
-        </motion.div>
-    );
 
     return (
         <div className="space-y-6">
@@ -75,7 +76,6 @@ const DashboardPage = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
-                {/* Task Distribution (Donut Chart) */}
                 <div className="glass-panel p-6 h-[400px] lg:col-span-1 flex flex-col">
                     <Typography variant="h6" className="mb-6 text-gray-700 font-bold text-center">Task Distribution</Typography>
                     <div className="flex-1 relative">
@@ -100,14 +100,12 @@ const DashboardPage = () => {
                                 />
                             </PieChart>
                         </ResponsiveContainer>
-                        {/* Center Avatars - Mocking the image look */}
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                             <div className="w-16 h-16 rounded-full border-4 border-white/50 bg-indigo-100" />
                         </div>
                     </div>
                 </div>
 
-                {/* Quarterly Performance (Bar Chart) */}
                 <div className="glass-panel p-6 h-[400px] lg:col-span-1 flex flex-col">
                     <Typography variant="h6" className="mb-6 text-gray-700 font-bold">Quarterly Performance</Typography>
                     <div className="flex-1">
@@ -129,7 +127,6 @@ const DashboardPage = () => {
                     </div>
                 </div>
 
-                {/* Pending Tasks Widget */}
                 <div className="glass-panel p-6 h-[400px] lg:col-span-1 overflow-y-auto">
                     <Typography variant="h6" className="mb-6 text-gray-700 font-bold">Pending Tasks</Typography>
                     <div className="space-y-4">
@@ -144,7 +141,6 @@ const DashboardPage = () => {
                                 </div>
                             </div>
                         ))}
-                        {/* Mock Data to fill if empty */}
                         {pendingTasks.length === 0 && (
                             <>
                                 <div className="flex items-center justify-between p-4 bg-indigo-50/50 rounded-xl">
@@ -168,6 +164,6 @@ const DashboardPage = () => {
             </div>
         </div>
     );
-};
+}
 
 export default DashboardPage;
