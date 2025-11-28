@@ -79,5 +79,14 @@ The backend includes Swagger documentation available at: `http://localhost:3000/
 - **Email Service**: No real email service is integrated; "emails" are just database fields.
 
 ## 6. Screenshots
+<img width="2871" height="1619" alt="image" src="https://github.com/user-attachments/assets/8c7626c2-b555-4273-9764-5988ddbf299e" />
 <img width="1511" height="1330" alt="image-1" src="https://github.com/user-attachments/assets/caa225e8-bf5b-405b-bd2c-3842c195d6e2" />
+<img width="2666" height="1510" alt="image" src="https://github.com/user-attachments/assets/ea71fbd6-3be3-466f-a69e-e0770e7b9aa4" />
+<img width="1519" height="1286" alt="image" src="https://github.com/user-attachments/assets/382f25fc-1ba2-4516-b9d9-4947d9649b1a" />
+<img width="1566" height="1184" alt="image" src="https://github.com/user-attachments/assets/14254c86-935e-4d2a-a07d-37841754eb4e" />
+<img width="2851" height="1454" alt="image" src="https://github.com/user-attachments/assets/d697573a-65ab-4f3e-8122-de46b81b6a80" />
+
+
+
+
 
