@@ -5,7 +5,11 @@ This is a full-stack web application developed for the **Internship Coding Chall
 
 **Bonus Challenge Completed**: Role-Based Access Control (RBAC) is implemented.
 - **Admins**: Can manage all employees and tasks.
+-   username:admin
+-   password:password123
 - **Regular Users**: Can only view tasks assigned to them.
+
+**Website link**:https://employee-task-tracker-six.vercel.app/
 
 ## 2. Tech Stack & Architecture
 
@@ -85,7 +89,8 @@ The backend includes Swagger documentation available at: `http://localhost:3000/
 <img width="2871" height="1619" alt="image" src="https://github.com/user-attachments/assets/8c7626c2-b555-4273-9764-5988ddbf299e" />
 <img width="1566" height="1184" alt="image" src="https://github.com/user-attachments/assets/14254c86-935e-4d2a-a07d-37841754eb4e" />
 <img width="2851" height="1454" alt="image" src="https://github.com/user-attachments/assets/d697573a-65ab-4f3e-8122-de46b81b6a80" />
-![Uploading image.png…]()
+<img width="2869" height="1447" alt="image" src="https://github.com/user-attachments/assets/a985969f-7102-48a5-acb0-895379393d4b" />
+
 
 
 
